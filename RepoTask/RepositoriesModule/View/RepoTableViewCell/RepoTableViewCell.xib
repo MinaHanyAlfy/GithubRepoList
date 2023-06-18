@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepoTableViewCell" rowHeight="114" id="KGk-i7-Jjw" customClass="RepoTableViewCell" customModule="RepoTask" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="584" height="114"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="584" height="114"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="cyO-3V-1rY">
+                        <rect key="frame" x="16" y="4" width="98" height="98"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="98" id="er6-R7-QZH"/>
+                            <constraint firstAttribute="width" constant="98" id="wta-EN-zuX"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="xuW-nV-ciV">
+                        <rect key="frame" x="118.00000000000001" y="4" width="47.666666666666671" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="09p-5D-1cS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Repo Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qLe-pX-arq">
+                        <rect key="frame" x="169.66666666666666" y="4" width="410.33333333333337" height="32"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Mgz-Af-liV">
+                        <rect key="frame" x="117.99999999999999" y="38" width="50.333333333333329" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="lH2-vT-NeG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Repo Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="rcO-K4-67a">
+                        <rect key="frame" x="172.33333333333334" y="38" width="387.66666666666663" height="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="tAM-t1-7az">
+                        <rect key="frame" x="117.99999999999999" y="84" width="34.333333333333329" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="dZc-Vs-wML"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Modify Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="tCO-X1-374">
+                        <rect key="frame" x="156.33333333333334" y="84" width="423.66666666666663" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Mgz-Af-liV" firstAttribute="top" secondItem="xuW-nV-ciV" secondAttribute="bottom" constant="2" id="4Z0-F1-BuF"/>
+                    <constraint firstItem="xuW-nV-ciV" firstAttribute="top" secondItem="cyO-3V-1rY" secondAttribute="top" id="5oP-DQ-mM4"/>
+                    <constraint firstItem="qLe-pX-arq" firstAttribute="leading" secondItem="xuW-nV-ciV" secondAttribute="trailing" constant="4" id="8ee-BC-Cw2"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="rcO-K4-67a" secondAttribute="trailing" constant="4" id="9Hn-em-Bpq"/>
+                    <constraint firstItem="rcO-K4-67a" firstAttribute="leading" secondItem="Mgz-Af-liV" secondAttribute="trailing" constant="4" id="CBR-kp-ypA"/>
+                    <constraint firstItem="rcO-K4-67a" firstAttribute="top" secondItem="Mgz-Af-liV" secondAttribute="top" id="CsD-dB-pDa"/>
+                    <constraint firstItem="qLe-pX-arq" firstAttribute="bottom" secondItem="xuW-nV-ciV" secondAttribute="bottom" id="EHL-yj-Fd4"/>
+                    <constraint firstItem="cyO-3V-1rY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="I05-oF-pKi"/>
+                    <constraint firstAttribute="trailing" secondItem="tCO-X1-374" secondAttribute="trailing" constant="4" id="KAb-Ix-u18"/>
+                    <constraint firstItem="xuW-nV-ciV" firstAttribute="leading" secondItem="cyO-3V-1rY" secondAttribute="trailing" constant="4" id="Mmh-oN-GDa"/>
+                    <constraint firstItem="Mgz-Af-liV" firstAttribute="leading" secondItem="cyO-3V-1rY" secondAttribute="trailing" constant="4" id="Ovq-XC-EeG"/>
+                    <constraint firstItem="tCO-X1-374" firstAttribute="top" secondItem="tAM-t1-7az" secondAttribute="top" id="UK8-Ba-8kL"/>
+                    <constraint firstItem="cyO-3V-1rY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZSB-xj-Ulm"/>
+                    <constraint firstItem="rcO-K4-67a" firstAttribute="bottom" secondItem="Mgz-Af-liV" secondAttribute="bottom" id="aaP-HL-9Wj"/>
+                    <constraint firstItem="tCO-X1-374" firstAttribute="leading" secondItem="tAM-t1-7az" secondAttribute="trailing" constant="4" id="byf-dW-uKg"/>
+                    <constraint firstItem="tCO-X1-374" firstAttribute="bottom" secondItem="tAM-t1-7az" secondAttribute="bottom" id="c4g-Iw-k0Y"/>
+                    <constraint firstItem="cyO-3V-1rY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="ehX-Y0-ihM"/>
+                    <constraint firstItem="qLe-pX-arq" firstAttribute="top" secondItem="xuW-nV-ciV" secondAttribute="top" id="fBL-Pr-HxS"/>
+                    <constraint firstAttribute="trailing" secondItem="qLe-pX-arq" secondAttribute="trailing" constant="4" id="j3T-hK-Op2"/>
+                    <constraint firstAttribute="bottom" secondItem="cyO-3V-1rY" secondAttribute="bottom" constant="4" id="kom-P7-nQg"/>
+                    <constraint firstItem="tAM-t1-7az" firstAttribute="leading" secondItem="cyO-3V-1rY" secondAttribute="trailing" constant="4" id="kvJ-Hq-CM0"/>
+                    <constraint firstItem="tAM-t1-7az" firstAttribute="bottom" secondItem="cyO-3V-1rY" secondAttribute="bottom" id="mFg-UA-iEA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="repoCreationDateLabel" destination="tCO-X1-374" id="Z3J-q3-0nj"/>
+                <outlet property="repoImageView" destination="cyO-3V-1rY" id="kvQ-kQ-cJ5"/>
+                <outlet property="repoNameLabel" destination="qLe-pX-arq" id="U77-yC-45F"/>
+                <outlet property="repoOwnerLabel" destination="rcO-K4-67a" id="m4r-iM-dAp"/>
+            </connections>
+            <point key="canvasLocation" x="337.40458015267177" y="73.239436619718319"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="image" width="1024" height="1024"/>
+    </resources>
+</document>
