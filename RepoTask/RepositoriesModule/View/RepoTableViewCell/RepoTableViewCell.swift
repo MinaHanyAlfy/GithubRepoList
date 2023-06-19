@@ -25,6 +25,22 @@ class RepoTableViewCell: UITableViewCell {
         repoImageView.layer.cornerRadius = imageHeight / 2.0
     }
     
+    func cellConfig(name: String, ownerName: String, imageStr: String, repoLink: String) {
+        repoNameLabel.text = name
+        repoOwnerLabel.text = ownerName
+//        repoCreationDateLabel.text 
+        //MARK:  - To Download and Cache Image -
+        repoImageView.loadImageUsingCacheWithURLString(imageStr, placeHolder: UIImage(named: "noImageContent+"))
+        
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        repoImageView.image = UIImage(named: "noImageContent+")
+        repoNameLabel.text = ""
+        repoOwnerLabel.text = ""
+        repoCreationDateLabel.text = ""
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -32,3 +48,5 @@ class RepoTableViewCell: UITableViewCell {
     }
     
 }
+
+

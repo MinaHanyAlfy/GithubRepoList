@@ -7,10 +7,10 @@
 
 import Foundation
 
-typealias Repo = [RepoElement]
+typealias Repositories = [Repo]
 
 // MARK: - RepoElement
-struct RepoElement: Codable {
+struct Repo: Codable {
     let id: Int
     let nodeID, name, fullName: String
     let repoPrivate: Bool

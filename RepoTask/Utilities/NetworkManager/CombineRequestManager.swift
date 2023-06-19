@@ -18,7 +18,7 @@ class CombineRequestManager {
                 .eraseToAnyPublisher()
         }
         
-        var urlRequest = URLRequest(url: url,cachePolicy: .reloadRevalidatingCacheData,timeoutInterval: requestTimeOut)
+        let urlRequest = URLRequest(url: url,cachePolicy: .reloadRevalidatingCacheData,timeoutInterval: requestTimeOut)
         
         return URLSession.shared
             .dataTaskPublisher(for: urlRequest)

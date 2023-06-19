@@ -8,18 +8,18 @@
 import Foundation
 import Combine
 
-protocol ProductsRepositoryProtocol {
-    func getProducts() -> AnyPublisher<Repo, ErorrMessage>
+protocol RepoRepositoryProtocol {
+    func getRepos() -> AnyPublisher<Repositories, ErorrMessage>
 }
 
-class ProductsRepository: ProductsRepositoryProtocol {
+class RepoRepository: RepoRepositoryProtocol {
     private var cancellabels = Set<AnyCancellable>()
     
-    func getProducts() -> AnyPublisher<Repo, ErorrMessage> {
-        let subject = PassthroughSubject<Repo, ErorrMessage>()
+    func getRepos() -> AnyPublisher<Repositories, ErorrMessage> {
+        let subject = PassthroughSubject<Repositories, ErorrMessage>()
         let configurationRequest = API.fetchRepos
         
-        CombineRequestManager.beginRequest(request: configurationRequest, model: Repo.self)
+        CombineRequestManager.beginRequest(request: configurationRequest, model: Repositories.self)
             .sink(receiveCompletion: { completion in
                 if case let .failure(error) = completion {
                     subject.send(completion: .failure(error))
