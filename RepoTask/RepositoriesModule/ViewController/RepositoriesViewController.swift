@@ -7,17 +7,29 @@
 
 import UIKit
 import Combine
+import UIScrollView_InfiniteScroll
+import SVProgressHUD
+import DZNEmptyDataSet
 
 class RepositoriesViewController: UIViewController {
     
     var viewModel: RepositoriesViewModelProtocol!
     private var cancellabels = Set<AnyCancellable>()
-
+    
+    var repoDetailsViewController: RepositoryDetailsViewController?
     private let tableView :UITableView = {
         let tableView = UITableView()
         tableView.registerCell(tableViewCell: RepoTableViewCell.self)
         tableView.allowsSelection = true
         return tableView
+    }()
+    
+    private let searchController : UISearchController = {
+        let searchResultViewController = SearchResultViewController()
+        let controller = UISearchController(searchResultsController: searchResultViewController)
+        controller.searchBar.placeholder = "Search for Repository.."
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
     }()
     
     override func viewDidLoad() {
@@ -26,6 +38,8 @@ class RepositoriesViewController: UIViewController {
         setupTableView()
         loadDate()
         bindRepos()
+        searchController.searchResultsUpdater = self
+        setupNavigation()
     }
     
     override func viewDidLayoutSubviews() {
@@ -33,8 +47,12 @@ class RepositoriesViewController: UIViewController {
         tableView.frame = view.bounds
     }
     
-    private func loadDate() {
-        viewModel.getRepos()
+    private func setupNavigation() {
+        navigationItem.title = "Repositories"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationItem.searchController = searchController
+        navigationController?.navigationBar.tintColor = .black
     }
     
     private func setupTableView() {
@@ -43,9 +61,27 @@ class RepositoriesViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.emptyDataSetSource = self
+        addInfiniteLoading()
+    }
+    
+    private func addInfiniteLoading() {
+        tableView.addInfiniteScroll { [weak self] (tableView) in
+            self?.viewModel.loadRepos()
+        }
+        
+        tableView.setShouldShowInfiniteScrollHandler { [weak self] (tableView) -> Bool in
+            return true
+        }
+    }
+    
+    private func loadDate() {
+        SVProgressHUD.show()
+        viewModel.getRepos()
     }
     
     private func showError(error: ErorrMessage) {
+        SVProgressHUD.dismiss()
         let alert = UIAlertController(title: "Error fetching data", message: "Please, Check network, back and try to add again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Thanks", style: .cancel))
         self.present(alert, animated: true)
@@ -53,6 +89,8 @@ class RepositoriesViewController: UIViewController {
     
     private func fetchSuccess() {
         self.tableView.reloadData()
+        SVProgressHUD.dismiss()
+        tableView.finishInfiniteScroll()
     }
 }
 
@@ -83,13 +121,13 @@ extension RepositoriesViewController {
 //MARK: - UITableViewDataSource -
 extension RepositoriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.repos.count
+        return viewModel.repositories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(tableViewCell: RepoTableViewCell.self , forIndexPath: indexPath)
         let index = indexPath.row
-        let repo = viewModel.repos[index]
+        let repo = viewModel.repositories[index]
         cell.cellConfig(name: repo.name, ownerName: repo.owner.login, imageStr: repo.owner.avatarURL, repoLink: repo.owner.url)
         return cell
 
@@ -100,6 +138,49 @@ extension RepositoriesViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate -
 extension RepositoriesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Open Repository Details
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let index = indexPath.row
+        let repo = viewModel.repositories[index]
+         repoDetailsViewController = RepositoryDetailsViewController.ViewController(repo: repo)
+        self.navigationController?.pushViewController(repoDetailsViewController!, animated: true)
+    }
+}
+
+//MARK: - UISearchResultsUpdating
+extension RepositoriesViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        
+        guard let query = searchBar.text?.lowercased(),
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              query.trimmingCharacters(in: .whitespaces).count >= 2,
+              let resultsController = searchController.searchResultsController as? SearchResultViewController else {
+                  return
+              }
+        let repos = viewModel.repositories
+        resultsController.delegate = self
+        resultsController.repositories = repos.filter{$0.fullName.contains(query)}
+    }
+}
+
+//MARK: - DZNEmptyDataSetSource -
+extension RepositoriesViewController: DZNEmptyDataSetSource {
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(systemName: "bell.fill")
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let quote = "There's no repositories"
+        let attributedQuote = NSMutableAttributedString(string: quote)
+        return attributedQuote
+    }
+}
+
+//MARK: - SearchResultSelectedProtocol -
+extension RepositoriesViewController: SearchResultSelectedProtocol {
+    func didSelectedCell(repo: Repository) {
+        repoDetailsViewController = RepositoryDetailsViewController.ViewController(repo: repo)
+        self.navigationController?.pushViewController(repoDetailsViewController!, animated: true)
     }
 }

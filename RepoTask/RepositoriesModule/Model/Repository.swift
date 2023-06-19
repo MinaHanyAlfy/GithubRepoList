@@ -7,10 +7,10 @@
 
 import Foundation
 
-typealias Repositories = [Repo]
+typealias Repositories = [Repository]
 
 // MARK: - RepoElement
-struct Repo: Codable {
+struct Repository: Codable, Equatable {
     let id: Int
     let nodeID, name, fullName: String
     let repoPrivate: Bool
@@ -83,5 +83,9 @@ struct Repo: Codable {
         case labelsURL = "labels_url"
         case releasesURL = "releases_url"
         case deploymentsURL = "deployments_url"
+    }
+    
+    static func == (lhs: Repository, rhs: Repository) -> Bool {
+        return lhs.id == rhs.id 
     }
 }

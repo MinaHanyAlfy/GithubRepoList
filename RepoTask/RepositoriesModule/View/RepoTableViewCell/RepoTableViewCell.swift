@@ -28,7 +28,7 @@ class RepoTableViewCell: UITableViewCell {
     func cellConfig(name: String, ownerName: String, imageStr: String, repoLink: String) {
         repoNameLabel.text = name
         repoOwnerLabel.text = ownerName
-//        repoCreationDateLabel.text 
+//        repoCreationDateLabel.text
         //MARK:  - To Download and Cache Image -
         repoImageView.loadImageUsingCacheWithURLString(imageStr, placeHolder: UIImage(named: "noImageContent+"))
         

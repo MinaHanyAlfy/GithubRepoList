@@ -12,20 +12,24 @@ protocol RepositoriesViewModelProtocol {
     var errorPublisher: Published<ErorrMessage?>.Publisher {get}
     var reposSuccessPublisher: Published<Bool?>.Publisher {get}
     
-    var repos: Repositories {set get}
-    func getRepos()
+    var shouldLoadMore: Bool {set get}
+    var repositories: Repositories {set get}
+
     
 //    func getReposCount() -> Int
 //    func getReposDataSourceCount() -> Int
-//    func getRepo(index: Int) -> Repo
+//    func getRepo(index: Int) -> Repository
+    func getRepos()
     func repoName(index: Int) -> String
     func repoImage(index: Int) -> String
     func repoOwner(index: Int) -> String
     func repoId(index: Int) -> Int
+    func loadRepos()
 //    func repoCreatedDate(index: Int) -> String
 }
 
 class RepositoriesViewModel: RepositoriesViewModelProtocol {
+    var shouldLoadMore: Bool = false
     
     @Published private var error: ErorrMessage? = nil
     var errorPublisher: Published<ErorrMessage?>.Publisher {$error}
@@ -37,7 +41,7 @@ class RepositoriesViewModel: RepositoriesViewModelProtocol {
     private var repo: RepoRepositoryProtocol!
     private var cancellabels = Set<AnyCancellable>()
     
-    var repos: Repositories = []
+    var repositories: Repositories = []
     
     init(repo: RepoRepository = RepoRepository()) {
         self.repo = repo
@@ -52,40 +56,42 @@ class RepositoriesViewModel: RepositoriesViewModelProtocol {
                     self?.error = error
                 }
             }, receiveValue: { [weak self] data in
-                self?.repos = data
+                self?.repositories = data
                 self?.reposDataSuccess = true
             })
             .store(in: &cancellabels)
     }
     
+    
+    
 //    func getReposDataSourceCount() -> Int
-//    func getRepo(index: Int) -> Repo
+//    func getRepo(index: Int) -> Repository {}
     func repoId(index: Int) -> Int {
-        guard repos.count > 0 else {
+        guard repositories.count > 0 else {
             return 0
         }
-        return repos[index].id
+        return repositories[index].id
     }
     
     func repoName(index: Int) -> String {
-        guard repos.count > 0 else {
+        guard repositories.count > 0 else {
             return ""
         }
-        return repos[index].name
+        return repositories[index].name
     }
     
     func repoOwner(index: Int) -> String {
-        guard repos.count > 0 else {
+        guard repositories.count > 0 else {
             return ""
         }
-        return repos[index].owner.login
+        return repositories[index].owner.login
     }
     
     func repoImage(index: Int) -> String {
-            guard repos.count > 0 else {
+            guard repositories.count > 0 else {
                 return ""
             }
-        return repos[index].owner.avatarURL
+        return repositories[index].owner.avatarURL
     }
    
 //    func repoCreatedDate(index: Int) -> String {
@@ -94,4 +100,8 @@ class RepositoriesViewModel: RepositoriesViewModelProtocol {
 //        }
 //    return repos[index].
 //    }
+    
+    func loadRepos() {
+        getRepos()
+    }
 }
