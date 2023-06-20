@@ -15,7 +15,7 @@ class RepoTableViewCell: UITableViewCell {
     
     let imageHeight: CGFloat = 98
     var delegate: RepoTableViewCellProtocol?
-
+    private var date: Date = Date()
     @IBOutlet weak var repoImageView: UIImageView!
     @IBOutlet weak var repoOwnerLabel: UILabel!
     @IBOutlet weak var repoNameLabel: UILabel!
@@ -40,7 +40,10 @@ class RepoTableViewCell: UITableViewCell {
         
         //MARK: - To Get More Repository Info -
         if repositoryInfo != nil {
-            self.repoCreationDateLabel.text = repositoryInfo?.createdAt
+            date = repositoryInfo?.createdAt?.getDateValue ?? Date()
+            self.repoCreationDateLabel.text = date.formatDateSinceCreationDate()
+            
+
         } else {
             if let repoUrl = URL(string: repoLink) {
                 repoUrl.cacheUserRepoData { result in
@@ -50,7 +53,8 @@ class RepoTableViewCell: UITableViewCell {
                     case .success(let repo):
                         self.delegate?.updateRepositoriesData(repositoryInfo: repo)
                         DispatchQueue.main.async {
-                            self.repoCreationDateLabel.text = repo.createdAt
+                            self.date = repo.createdAt?.getDateValue ?? Date()
+                            self.repoCreationDateLabel.text = self.date.formatDateSinceCreationDate()
                         }
                     }
                 }
@@ -71,6 +75,8 @@ class RepoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
     
 }
 

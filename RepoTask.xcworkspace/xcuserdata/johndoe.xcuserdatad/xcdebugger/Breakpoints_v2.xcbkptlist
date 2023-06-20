@@ -113,6 +113,38 @@
             endingLineNumber = "104"
             landmarkName = "bindRepos()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "25C94E26-1912-4569-A4D2-F3C898FCB2A7 - 895297c2f03323f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;RepoTask.ErorrMessage&gt;) -&gt; () in RepoTask.RepositoriesViewController.bindRepos() -&gt; ()"
+                  moduleName = "RepoTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/johndoe/Documents/iOS/RepoTask/RepoTask/RepositoriesModule/ViewController/RepositoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "25C94E26-1912-4569-A4D2-F3C898FCB2A7 - 895297c2f03323f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;RepoTask.ErrorMessage&gt;) -&gt; () in RepoTask.RepositoriesViewController.bindRepos() -&gt; ()"
+                  moduleName = "RepoTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/johndoe/Documents/iOS/RepoTask/RepoTask/RepositoriesModule/ViewController/RepositoriesViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -167,6 +199,36 @@
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Combine.Subscribers.Completion&lt;RepoTask.ErorrMessage&gt;) -&gt; () in RepoTask.RepositoriesViewModel.getRepos() -&gt; ()"
+                  moduleName = "RepoTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/johndoe/Documents/iOS/RepoTask/RepoTask/RepositoriesModule/ViewModel/RepositoriesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  uuid = "584F1812-D729-47C8-9B87-03BBD126FA10 - ce6a65ec79ba3a7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;RepoTask.ErrorMessage&gt;) -&gt; () in RepoTask.RepositoriesViewModel.getRepos() -&gt; ()"
+                  moduleName = "RepoTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/johndoe/Documents/iOS/RepoTask/RepoTask/RepositoriesModule/ViewModel/RepositoriesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "95">
+               </Location>
+               <Location
+                  uuid = "584F1812-D729-47C8-9B87-03BBD126FA10 - ce6a65ec79ba3a7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Combine.Subscribers.Completion&lt;RepoTask.ErrorMessage&gt;) -&gt; () in RepoTask.RepositoriesViewModel.getRepos() -&gt; ()"
                   moduleName = "RepoTask"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/johndoe/Documents/iOS/RepoTask/RepoTask/RepositoriesModule/ViewModel/RepositoriesViewModel.swift"
