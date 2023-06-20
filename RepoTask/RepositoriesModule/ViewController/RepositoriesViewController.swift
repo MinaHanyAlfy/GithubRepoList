@@ -57,7 +57,7 @@ class RepositoriesViewController: UIViewController {
     
     private func setupTableView() {
         view.addSubview(tableView)
-        tableView.estimatedRowHeight = 106
+        tableView.estimatedRowHeight = 86
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
