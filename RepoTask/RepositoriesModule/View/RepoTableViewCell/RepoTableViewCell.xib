@@ -34,13 +34,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Repo Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="qLe-pX-arq">
-                        <rect key="frame" x="119.66666666666669" y="7.6666666666666679" width="88.333333333333314" height="19"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <rect key="frame" x="119.66666666666666" y="7.6666666666666679" width="456.33333333333337" height="19"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Mgz-Af-liV">
-                        <rect key="frame" x="68" y="34" width="50.333333333333343" height="18"/>
+                        <rect key="frame" x="68" y="34.666666666666664" width="50.333333333333343" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="NJv-wg-rXm"/>
                         </constraints>
@@ -49,19 +49,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="tAM-t1-7az">
-                        <rect key="frame" x="68" y="60" width="34.333333333333343" height="48"/>
+                        <rect key="frame" x="68" y="61.333333333333343" width="34.333333333333343" height="46.666666666666657"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Modify Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="tCO-X1-374">
-                        <rect key="frame" x="119.66666666666666" y="75.666666666666671" width="78.666666666666657" height="17"/>
+                        <rect key="frame" x="119.66666666666666" y="76" width="456.33333333333337" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Repo Owner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="rcO-K4-67a">
-                        <rect key="frame" x="119.66666666666669" y="33.333333333333336" width="89.333333333333314" height="19.333333333333336"/>
+                        <rect key="frame" x="119.66666666666666" y="34" width="456.33333333333337" height="19.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -69,8 +69,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="qLe-pX-arq" firstAttribute="centerY" secondItem="xuW-nV-ciV" secondAttribute="centerY" id="4Po-uc-3u1"/>
+                    <constraint firstAttribute="trailing" secondItem="rcO-K4-67a" secondAttribute="trailing" constant="8" id="5T0-Od-pN8"/>
                     <constraint firstItem="tAM-t1-7az" firstAttribute="leading" secondItem="cyO-3V-1rY" secondAttribute="trailing" constant="12" id="7F0-Oj-f4m"/>
-                    <constraint firstItem="tAM-t1-7az" firstAttribute="top" secondItem="Mgz-Af-liV" secondAttribute="bottom" constant="8" id="GBE-1R-LU3"/>
                     <constraint firstItem="cyO-3V-1rY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="GZg-wh-l6u"/>
                     <constraint firstItem="tCO-X1-374" firstAttribute="leading" secondItem="rcO-K4-67a" secondAttribute="leading" id="HcD-ur-NmR"/>
                     <constraint firstItem="cyO-3V-1rY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IW9-AR-rSw"/>
@@ -80,8 +80,11 @@
                     <constraint firstItem="xuW-nV-ciV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Rh0-1t-jV6"/>
                     <constraint firstAttribute="bottom" secondItem="tAM-t1-7az" secondAttribute="bottom" constant="8" id="Wif-NG-gHU"/>
                     <constraint firstItem="qLe-pX-arq" firstAttribute="leading" secondItem="xuW-nV-ciV" secondAttribute="trailing" constant="4" id="Y7k-h2-0ak"/>
-                    <constraint firstItem="Mgz-Af-liV" firstAttribute="top" secondItem="xuW-nV-ciV" secondAttribute="bottom" constant="8" id="bAI-Qi-EKx"/>
+                    <constraint firstAttribute="trailing" secondItem="tCO-X1-374" secondAttribute="trailing" constant="8" id="dKd-Hc-h3M"/>
                     <constraint firstItem="rcO-K4-67a" firstAttribute="leading" secondItem="qLe-pX-arq" secondAttribute="leading" id="dYP-cO-R68"/>
+                    <constraint firstItem="Mgz-Af-liV" firstAttribute="top" secondItem="qLe-pX-arq" secondAttribute="bottom" constant="8" id="fdk-gE-Poh"/>
+                    <constraint firstItem="tAM-t1-7az" firstAttribute="top" secondItem="rcO-K4-67a" secondAttribute="bottom" constant="8" id="or9-pV-x0S"/>
+                    <constraint firstAttribute="trailing" secondItem="qLe-pX-arq" secondAttribute="trailing" constant="8" id="qw1-sO-u8N"/>
                     <constraint firstItem="Mgz-Af-liV" firstAttribute="leading" secondItem="cyO-3V-1rY" secondAttribute="trailing" constant="12" id="wQA-lI-Tk8"/>
                     <constraint firstItem="xuW-nV-ciV" firstAttribute="leading" secondItem="cyO-3V-1rY" secondAttribute="trailing" constant="12" id="xyL-fB-AWI"/>
                 </constraints>
@@ -93,7 +96,7 @@
                 <outlet property="repoNameLabel" destination="qLe-pX-arq" id="U77-yC-45F"/>
                 <outlet property="repoOwnerLabel" destination="rcO-K4-67a" id="m4r-iM-dAp"/>
             </connections>
-            <point key="canvasLocation" x="262.59541984732823" y="49.295774647887328"/>
+            <point key="canvasLocation" x="193.89312977099235" y="29.577464788732396"/>
         </tableViewCell>
     </objects>
     <resources>

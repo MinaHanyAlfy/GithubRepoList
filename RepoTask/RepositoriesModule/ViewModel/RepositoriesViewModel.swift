@@ -37,6 +37,15 @@ class RepositoriesViewModel: RepositoriesViewModelProtocol {
     @Published private var repositoriesUpdated: Bool? = nil
     var repoUdatePublisher: Published<Bool?>.Publisher {$repositoriesUpdated}
     
+    @Published var data: Repositories = []
+     
+     func fetchData() {
+         // Simulate async data fetch
+         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+             self.data.append(Repository(id: 2, nodeID: "2222", name: "moc", fullName: "mock/moo", repoPrivate: false, owner: Owner(login: "moo", id: 2, nodeID: "12312", avatarURL: "", gravatarID: "", url: "", htmlURL: "", type: .user, siteAdmin: false), htmlURL: "", description: "asdas", fork: false, url: "", forksURL: ""))
+         }
+     }
+    
     private var repo: RepoRepositoryProtocol!
     private var cancellabels = Set<AnyCancellable>()
 

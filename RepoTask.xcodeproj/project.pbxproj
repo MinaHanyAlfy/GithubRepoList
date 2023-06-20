@@ -13,6 +13,7 @@
 		7F87F41D2A41935100AE833F /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87F41C2A41935100AE833F /* URL+Extension.swift */; };
 		7F87F41F2A41A34C00AE833F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87F41E2A41A34C00AE833F /* String+Extension.swift */; };
 		7F87F4212A41A70800AE833F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87F4202A41A70700AE833F /* Date+Extension.swift */; };
+		7F87F4232A41CDCA00AE833F /* RepositoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87F4222A41CDCA00AE833F /* RepositoriesViewModelTests.swift */; };
 		7FE397882A40CD2700DBA560 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE397872A40CD2700DBA560 /* Array+Extension.swift */; };
 		7FE3978A2A40D56900DBA560 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE397892A40D56900DBA560 /* SearchResultViewController.swift */; };
 		7FE3978C2A40F4A800DBA560 /* RepositoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE3978B2A40F4A800DBA560 /* RepositoryDetailsViewController.swift */; };
@@ -68,6 +69,7 @@
 		7F87F41C2A41935100AE833F /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		7F87F41E2A41A34C00AE833F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		7F87F4202A41A70700AE833F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		7F87F4222A41CDCA00AE833F /* RepositoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModelTests.swift; sourceTree = "<group>"; };
 		7FE397872A40CD2700DBA560 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		7FE397892A40D56900DBA560 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		7FE3978B2A40F4A800DBA560 /* RepositoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				7FEB59822A3F7C900042806B /* RepoTaskTests.swift */,
+				7F87F4222A41CDCA00AE833F /* RepositoriesViewModelTests.swift */,
 			);
 			path = RepoTaskTests;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F87F4232A41CDCA00AE833F /* RepositoriesViewModelTests.swift in Sources */,
 				7FEB59832A3F7C900042806B /* RepoTaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

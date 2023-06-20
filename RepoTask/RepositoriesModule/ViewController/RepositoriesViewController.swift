@@ -157,7 +157,8 @@ extension RepositoriesViewController: UITableViewDelegate {
         
         let index = indexPath.row
         let repo = viewModel.repositories[index]
-         repoDetailsViewController = RepositoryDetailsViewController.ViewController(repo: repo)
+        let repoInfo = viewModel.repositoriesDictionary[repo.owner.id]
+         repoDetailsViewController = RepositoryDetailsViewController.ViewController(repo: repo, repoInfo: repoInfo)
         self.navigationController?.pushViewController(repoDetailsViewController!, animated: true)
     }
 }
@@ -197,7 +198,8 @@ extension RepositoriesViewController: DZNEmptyDataSetSource {
 //MARK: - SearchResultSelectedProtocol -
 extension RepositoriesViewController: SearchResultSelectedProtocol {
     func didSelectedCell(repo: Repository) {
-        repoDetailsViewController = RepositoryDetailsViewController.ViewController(repo: repo)
+        let repoInfo = viewModel.repositoriesDictionary[repo.owner.id]
+        repoDetailsViewController = RepositoryDetailsViewController.ViewController(repo: repo, repoInfo: repoInfo)
         self.navigationController?.pushViewController(repoDetailsViewController!, animated: true)
     }
 }

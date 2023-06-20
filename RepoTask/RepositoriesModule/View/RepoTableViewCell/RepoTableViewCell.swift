@@ -13,7 +13,7 @@ protocol RepoTableViewCellProtocol: AnyObject {
 
 class RepoTableViewCell: UITableViewCell {
     
-    let imageHeight: CGFloat = 24
+    let imageHeight: CGFloat = 48
     var delegate: RepoTableViewCellProtocol?
     private var date: Date = Date()
     @IBOutlet weak var repoImageView: UIImageView!
