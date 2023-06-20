@@ -36,10 +36,10 @@ class RepositoriesViewController: UIViewController {
         super.viewDidLoad()
         viewModel = RepositoriesViewModel()
         setupTableView()
-        loadDate()
-        bindRepos()
+        loadData()
         searchController.searchResultsUpdater = self
         setupNavigation()
+        bindRepos()
     }
     
     override func viewDidLayoutSubviews() {
@@ -67,15 +67,15 @@ class RepositoriesViewController: UIViewController {
     
     private func addInfiniteLoading() {
         tableView.addInfiniteScroll { [weak self] (tableView) in
-            self?.viewModel.loadRepos()
+            self?.viewModel.loadMoreRepos()
         }
         
-//        tableView.setShouldShowInfiniteScrollHandler { [weak self] (tableView) -> Bool in
-//            return true
-//        }
+        tableView.setShouldShowInfiniteScrollHandler { [weak self] (tableView) -> Bool in
+            return self?.viewModel.shouldLoadMore ?? false
+        }
     }
     
-    private func loadDate() {
+    private func loadData() {
         SVProgressHUD.show()
         viewModel.getRepos()
     }
@@ -88,6 +88,11 @@ class RepositoriesViewController: UIViewController {
     }
     
     private func fetchSuccess() {
+        self.tableView.reloadData()
+        SVProgressHUD.dismiss()
+    }
+    
+    private func updateRepoSuccess() {
         self.tableView.reloadData()
         SVProgressHUD.dismiss()
         tableView.finishInfiniteScroll()
@@ -111,7 +116,15 @@ extension RepositoriesViewController {
             .sink(receiveValue: { [weak self] fetched in
                 if fetched ?? false {
                     self?.fetchSuccess()
-                    print("You can proceed now")
+                }
+            })
+            .store(in: &cancellabels)
+        
+        viewModel.repoUdatePublisher
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] updated in
+                if updated ?? false {
+                    self?.updateRepoSuccess()
                 }
             })
             .store(in: &cancellabels)

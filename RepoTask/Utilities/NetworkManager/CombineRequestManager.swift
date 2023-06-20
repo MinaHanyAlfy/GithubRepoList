@@ -38,7 +38,7 @@ class CombineRequestManager {
                 
                 let dataString = String(data: data, encoding: .utf8) ?? ""
                 print("\n ________ API \(request) Response ______\n ")
-                print("__________ \n \(dataString) \n ___________")
+//                print("__________ \n \(dataString) \n ___________")
                 return data
             }
             .decode(type: model.self, decoder: JSONDecoder())

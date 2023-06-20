@@ -23,7 +23,6 @@ extension EndPoint {
         var components = URLComponents(string: baseURL)!
         components.path = urlSubFolder
         components.queryItems = queryItems
-        print("Url", components.url)
         return components
     }
     
