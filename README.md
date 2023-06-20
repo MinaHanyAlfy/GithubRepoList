@@ -32,3 +32,5 @@
  7-Using MVVM Design Pattern to make code able to use ,handle.
 
  8-Using 3 third-party libraries with cocoapods just for handling UI (SVProgressHUD, UIScrollView-InfiniteScroll, DZNEmptyDataSet).
+
+ 9-Using Unit Tests.
