@@ -9,8 +9,9 @@ import UIKit
 
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
-   
     
+    /// For Download The Image From URL
+    /// - Parameter url: Image Link
     func fromURL(url: URL) {
         DispatchQueue.global().async { [weak self] in
             guard let data = try? Data(contentsOf: url), let image = UIImage(data: data) else { return }
@@ -20,8 +21,11 @@ extension UIImageView {
         }
     }
     
+    /// To Download And check If Image Cache in Application File
+    /// - Parameters:
+    ///   - URLString: Image Link
+    ///   - placeHolder: Image For No Response or Wrong Response 
     func loadImageUsingCacheWithURLString(_ URLString: String, placeHolder: UIImage?) {
-        
         self.image = nil
         if let cachedImage = imageCache.object(forKey: NSString(string: URLString)) {
             self.image = cachedImage

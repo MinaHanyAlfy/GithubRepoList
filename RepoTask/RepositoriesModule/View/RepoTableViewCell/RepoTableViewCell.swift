@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol RepoTableViewCellProtocol: AnyObject {
+    func updateRepositoriesData(repositoryInfo: RepositoryInfo)
+}
+
 class RepoTableViewCell: UITableViewCell {
     
     let imageHeight: CGFloat = 98
+    var delegate: RepoTableViewCellProtocol?
+
     @IBOutlet weak var repoImageView: UIImageView!
     @IBOutlet weak var repoOwnerLabel: UILabel!
     @IBOutlet weak var repoNameLabel: UILabel!
@@ -25,13 +31,32 @@ class RepoTableViewCell: UITableViewCell {
         repoImageView.layer.cornerRadius = imageHeight / 2.0
     }
     
-    func cellConfig(name: String, ownerName: String, imageStr: String, repoLink: String) {
+    func cellConfig(name: String, ownerName: String, imageStr: String, repoLink: String, repositoryInfo: RepositoryInfo? ) {
         repoNameLabel.text = name
         repoOwnerLabel.text = ownerName
-//        repoCreationDateLabel.text
+        
         //MARK:  - To Download and Cache Image -
         repoImageView.loadImageUsingCacheWithURLString(imageStr, placeHolder: UIImage(named: "noImageContent+"))
         
+        //MARK: - To Get More Repository Info -
+        if repositoryInfo != nil {
+            self.repoCreationDateLabel.text = repositoryInfo?.createdAt
+        } else {
+            if let repoUrl = URL(string: repoLink) {
+                repoUrl.cacheUserRepoData { result in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let repo):
+                        self.delegate?.updateRepositoriesData(repositoryInfo: repo)
+                        DispatchQueue.main.async {
+                            self.repoCreationDateLabel.text = repo.createdAt
+                        }
+                    }
+                }
+                
+            }
+        }
     }
     
     override func prepareForReuse() {
@@ -48,5 +73,4 @@ class RepoTableViewCell: UITableViewCell {
     }
     
 }
-
 

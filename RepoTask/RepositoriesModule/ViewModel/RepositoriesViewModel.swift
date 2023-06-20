@@ -9,12 +9,12 @@ import Foundation
 import Combine
 
 protocol RepositoriesViewModelProtocol {
-    var errorPublisher: Published<ErorrMessage?>.Publisher {get}
+    var errorPublisher: Published<ErrorMessage?>.Publisher {get}
     var reposSuccessPublisher: Published<Bool?>.Publisher {get}
     
     var shouldLoadMore: Bool {set get}
     var repositories: Repositories {set get}
-
+    var repositoriesDictionary: [Int: RepositoryInfo] {set get}
     
 //    func getReposCount() -> Int
 //    func getReposDataSourceCount() -> Int
@@ -30,9 +30,9 @@ protocol RepositoriesViewModelProtocol {
 
 class RepositoriesViewModel: RepositoriesViewModelProtocol {
     var shouldLoadMore: Bool = false
-    
-    @Published private var error: ErorrMessage? = nil
-    var errorPublisher: Published<ErorrMessage?>.Publisher {$error}
+    var repositoriesDictionary: [Int : RepositoryInfo] = [:]
+    @Published private var error: ErrorMessage? = nil
+    var errorPublisher: Published<ErrorMessage?>.Publisher {$error}
     
     @Published private var reposDataSuccess: Bool? = nil
     var reposSuccessPublisher: Published<Bool?>.Publisher {$reposDataSuccess}
@@ -49,14 +49,14 @@ class RepositoriesViewModel: RepositoriesViewModelProtocol {
     
     
     func getRepos() {
-        repo.getRepos()
+            repo.getRepos()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {
                     self?.error = error
                 }
             }, receiveValue: { [weak self] data in
-                self?.repositories = data
+                self?.repositories.append(contentsOf: data)
                 self?.reposDataSuccess = true
             })
             .store(in: &cancellabels)

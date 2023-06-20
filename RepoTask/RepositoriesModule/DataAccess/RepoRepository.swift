@@ -9,18 +9,20 @@ import Foundation
 import Combine
 
 protocol RepoRepositoryProtocol {
-    func getRepos() -> AnyPublisher<Repositories, ErorrMessage>
+    func getRepos() -> AnyPublisher<Repositories, ErrorMessage>
 }
 
 class RepoRepository: RepoRepositoryProtocol {
     private var cancellabels = Set<AnyCancellable>()
     private var repos : Repositories = []
     private var noMoreData: Bool = false
-    func getRepos() -> AnyPublisher<Repositories, ErorrMessage> {
-        let subject = PassthroughSubject<Repositories, ErorrMessage>()
+    
+    func getRepos() -> AnyPublisher<Repositories, ErrorMessage> {
+        let subject = PassthroughSubject<Repositories, ErrorMessage>()
         let configurationRequest = API.fetchRepos
-        
-        if repos.count == 0 && noMoreData == false {
+        let publisher = subject.eraseToAnyPublisher()
+     
+        if repos.count == 0 {
             CombineRequestManager.beginRequest(request: configurationRequest, model: Repositories.self)
                 .sink(receiveCompletion: { completion in
                     if case let .failure(error) = completion {
@@ -28,24 +30,25 @@ class RepoRepository: RepoRepositoryProtocol {
                     }
                 },receiveValue: { repos in
                     self.repos = repos
-                    let subRepoDate = Array(repos.prefix(10))
-                    self.repos = self.repos.subtracting(subRepoDate)
-                    subject.send(subRepoDate)
+                    let subRepoData = Array(repos.prefix(10))
+                    self.repos = self.repos.subtracting(subRepoData)
+                    subject.send(subRepoData)
+                    
                     if self.repos.count == 0 {
                         self.noMoreData = true
                     }
                 })
                 .store(in: &cancellabels)
-            return subject.eraseToAnyPublisher()
+            return publisher
+            
         } else {
-//            AnyPublisher.
-            let subRepoDate = Array(repos.prefix(10))
-            repos = repos.subtracting(subRepoDate)
-            subject.send(subRepoDate)
-            if self.repos.count == 0 {
-                self.noMoreData = true
-            }
-            return subject.eraseToAnyPublisher()
+//            let subRepoData = Array(repos.prefix(10)) as? Repositories
+//            repos = repos.subtracting(subRepoData ?? [])
+//            subject
+//                .send(subRepoData ?? [])
+            return publisher
         }
+
+        
     }
 }

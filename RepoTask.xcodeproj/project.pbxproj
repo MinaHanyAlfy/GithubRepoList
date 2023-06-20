@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7F3335E12A402D92003E901D /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3335E02A402D92003E901D /* RepositoriesViewModel.swift */; };
 		7F3335E42A405DA8003E901D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3335E32A405DA8003E901D /* UIImageView+Extension.swift */; };
+		7F87F41B2A418EDB00AE833F /* RepositoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87F41A2A418EDB00AE833F /* RepositoryInfo.swift */; };
+		7F87F41D2A41935100AE833F /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87F41C2A41935100AE833F /* URL+Extension.swift */; };
 		7FE397882A40CD2700DBA560 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE397872A40CD2700DBA560 /* Array+Extension.swift */; };
 		7FE3978A2A40D56900DBA560 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE397892A40D56900DBA560 /* SearchResultViewController.swift */; };
 		7FE3978C2A40F4A800DBA560 /* RepositoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE3978B2A40F4A800DBA560 /* RepositoryDetailsViewController.swift */; };
@@ -21,7 +23,7 @@
 		7FEB598D2A3F7C900042806B /* RepoTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB598C2A3F7C900042806B /* RepoTaskUITests.swift */; };
 		7FEB598F2A3F7C900042806B /* RepoTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB598E2A3F7C900042806B /* RepoTaskUITestsLaunchTests.swift */; };
 		7FEB599E2A3F89530042806B /* CombineRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB599D2A3F89530042806B /* CombineRequestManager.swift */; };
-		7FEB59A02A3F89680042806B /* ErorrMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB599F2A3F89680042806B /* ErorrMessage.swift */; };
+		7FEB59A02A3F89680042806B /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB599F2A3F89680042806B /* ErrorMessage.swift */; };
 		7FEB59A22A3F898E0042806B /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB59A12A3F898E0042806B /* EndPoint.swift */; };
 		7FEB59A52A3F89EC0042806B /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB59A42A3F89EC0042806B /* UITableView+Extension.swift */; };
 		7FEB59A72A3F8A340042806B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB59A62A3F8A340042806B /* API.swift */; };
@@ -60,6 +62,8 @@
 		79D047D8B39FB3D13B78E504 /* Pods-RepoTask-RepoTaskUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepoTask-RepoTaskUITests.debug.xcconfig"; path = "Target Support Files/Pods-RepoTask-RepoTaskUITests/Pods-RepoTask-RepoTaskUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7F3335E02A402D92003E901D /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
 		7F3335E32A405DA8003E901D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		7F87F41A2A418EDB00AE833F /* RepositoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RepositoryInfo.swift; path = ../../../../../../../../Applications/RepositoryInfo.swift; sourceTree = "<group>"; };
+		7F87F41C2A41935100AE833F /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		7FE397872A40CD2700DBA560 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		7FE397892A40D56900DBA560 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		7FE3978B2A40F4A800DBA560 /* RepositoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +80,7 @@
 		7FEB598C2A3F7C900042806B /* RepoTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTaskUITests.swift; sourceTree = "<group>"; };
 		7FEB598E2A3F7C900042806B /* RepoTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7FEB599D2A3F89530042806B /* CombineRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineRequestManager.swift; sourceTree = "<group>"; };
-		7FEB599F2A3F89680042806B /* ErorrMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErorrMessage.swift; sourceTree = "<group>"; };
+		7FEB599F2A3F89680042806B /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		7FEB59A12A3F898E0042806B /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		7FEB59A42A3F89EC0042806B /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		7FEB59A62A3F8A340042806B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -219,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				7FEB599D2A3F89530042806B /* CombineRequestManager.swift */,
-				7FEB599F2A3F89680042806B /* ErorrMessage.swift */,
+				7FEB599F2A3F89680042806B /* ErrorMessage.swift */,
 				7FEB59A12A3F898E0042806B /* EndPoint.swift */,
 				7FEB59A62A3F8A340042806B /* API.swift */,
 			);
@@ -232,6 +236,7 @@
 				7FEB59A42A3F89EC0042806B /* UITableView+Extension.swift */,
 				7F3335E32A405DA8003E901D /* UIImageView+Extension.swift */,
 				7FE397872A40CD2700DBA560 /* Array+Extension.swift */,
+				7F87F41C2A41935100AE833F /* URL+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 			children = (
 				7FEB59AD2A3F8C470042806B /* Repository.swift */,
 				7FEB59AF2A3F8C690042806B /* Owner.swift */,
+				7F87F41A2A418EDB00AE833F /* RepositoryInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,9 +537,11 @@
 				7FEB59692A3F7C8D0042806B /* AppDelegate.swift in Sources */,
 				7FEB59732A3F7C8D0042806B /* RepoTask.xcdatamodeld in Sources */,
 				7FE397882A40CD2700DBA560 /* Array+Extension.swift in Sources */,
-				7FEB59A02A3F89680042806B /* ErorrMessage.swift in Sources */,
+				7F87F41B2A418EDB00AE833F /* RepositoryInfo.swift in Sources */,
+				7FEB59A02A3F89680042806B /* ErrorMessage.swift in Sources */,
 				7FEB59A72A3F8A340042806B /* API.swift in Sources */,
 				7F3335E12A402D92003E901D /* RepositoriesViewModel.swift in Sources */,
+				7F87F41D2A41935100AE833F /* URL+Extension.swift in Sources */,
 				7FEB59AE2A3F8C470042806B /* Repository.swift in Sources */,
 				7FE3978C2A40F4A800DBA560 /* RepositoryDetailsViewController.swift in Sources */,
 				7FEB59B02A3F8C690042806B /* Owner.swift in Sources */,
@@ -727,7 +735,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -758,7 +766,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

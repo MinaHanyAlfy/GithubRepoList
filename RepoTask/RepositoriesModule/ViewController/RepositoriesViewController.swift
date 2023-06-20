@@ -70,9 +70,9 @@ class RepositoriesViewController: UIViewController {
             self?.viewModel.loadRepos()
         }
         
-        tableView.setShouldShowInfiniteScrollHandler { [weak self] (tableView) -> Bool in
-            return true
-        }
+//        tableView.setShouldShowInfiniteScrollHandler { [weak self] (tableView) -> Bool in
+//            return true
+//        }
     }
     
     private func loadDate() {
@@ -80,7 +80,7 @@ class RepositoriesViewController: UIViewController {
         viewModel.getRepos()
     }
     
-    private func showError(error: ErorrMessage) {
+    private func showError(error: ErrorMessage) {
         SVProgressHUD.dismiss()
         let alert = UIAlertController(title: "Error fetching data", message: "Please, Check network, back and try to add again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Thanks", style: .cancel))
@@ -128,7 +128,9 @@ extension RepositoriesViewController: UITableViewDataSource {
         let cell = tableView.dequeue(tableViewCell: RepoTableViewCell.self , forIndexPath: indexPath)
         let index = indexPath.row
         let repo = viewModel.repositories[index]
-        cell.cellConfig(name: repo.name, ownerName: repo.owner.login, imageStr: repo.owner.avatarURL, repoLink: repo.owner.url)
+        cell.cellConfig(name: repo.name, ownerName: repo.owner.login, imageStr: repo.owner.avatarURL, repoLink: repo.owner.url,repositoryInfo: viewModel.repositoriesDictionary[repo.owner.id])
+        cell.delegate = self
+        
         return cell
 
     }
@@ -159,7 +161,9 @@ extension RepositoriesViewController: UISearchResultsUpdating {
                   return
               }
         let repos = viewModel.repositories
+        let reposDictionary = viewModel.repositoriesDictionary
         resultsController.delegate = self
+        resultsController.repositoryDictionary = reposDictionary
         resultsController.repositories = repos.filter{$0.fullName.contains(query)}
     }
 }
@@ -184,3 +188,14 @@ extension RepositoriesViewController: SearchResultSelectedProtocol {
         self.navigationController?.pushViewController(repoDetailsViewController!, animated: true)
     }
 }
+
+//MARK: - RepoTableViewCellProtocol -
+extension RepositoriesViewController: RepoTableViewCellProtocol {
+    /// To Update Dictionary to cache repositories info
+    /// - Parameter repositoryInfo: repositoryInfo that have more details for repository
+    func updateRepositoriesData(repositoryInfo: RepositoryInfo) {
+        viewModel.repositoriesDictionary[repositoryInfo.id] = repositoryInfo
+    }
+}
+
+

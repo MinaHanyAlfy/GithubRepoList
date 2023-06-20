@@ -19,6 +19,7 @@ class SearchResultViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    var repositoryDictionary: [Int: RepositoryInfo] = [:]
     
     private let tableView :UITableView = {
         let tableView = UITableView()
@@ -56,7 +57,7 @@ extension SearchResultViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(tableViewCell: RepoTableViewCell.self, forIndexPath: indexPath)
         let repository = repositories[indexPath.row]
-        cell.cellConfig(name: repository.name, ownerName: repository.owner.login, imageStr: repository.owner.avatarURL, repoLink: repository.owner.url)
+        cell.cellConfig(name: repository.name, ownerName: repository.owner.login, imageStr: repository.owner.avatarURL, repoLink: repository.owner.url, repositoryInfo: repositoryDictionary[repository.owner.id])
         return cell
     }
     
